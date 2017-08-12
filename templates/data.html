@@ -1,0 +1,25 @@
+{%  extends 'layout.html' %}
+
+{% block mybody %}
+    <h1>Emails</h1>
+    {% if emails | list | length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                </tr>
+                {% for email in emails | sort(attribute='date', reverse=True)%}
+                    <tr>
+                        <td>{{ email.id }}</td>
+                        <td>{{ email.email }}</td>
+                        <td>{{ email.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% else %}
+        <p class="lead">No emails yet</p>
+    {% endif %}
+{% endblock %}

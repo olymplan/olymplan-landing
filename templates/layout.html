@@ -1,0 +1,24 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    Олимплан
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    {#    <link rel=stylesheet type=text/css href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+    {#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include 'includes/_messages.html' %}
+        {% block mybody %}{% endblock %}
+    </div>
+{% endblock %}
